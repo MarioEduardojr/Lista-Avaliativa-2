@@ -54,8 +54,7 @@ int main() {
             return 1;
         }
     }
-
-    // Leitura dos dados do time 2
+    
     printf("Digite o nome do Time 2: ");
     scanf("%30[^\n]%*c", nomeTime2);
 
