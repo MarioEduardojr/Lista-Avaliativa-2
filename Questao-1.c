@@ -9,7 +9,7 @@ int somaVetores(int valores[], int tamanho) {
         for (int i = 0; i < tamanho; i++) {
             printf("%d", valores[i]);
             if (i < tamanho - 1) {
-                printf(" ");
+                printf("\n");
             }
         }
         printf("\n");
@@ -28,7 +28,7 @@ int main() {
     for (int i = 0; i < elementos; i++) {
         printf("%d", conjuntodevalores[i]);
         if (i < elementos - 1) {
-            printf(" ");
+            printf("\n");
         }
     }
     printf("\n");
