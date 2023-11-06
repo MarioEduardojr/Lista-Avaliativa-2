@@ -22,8 +22,7 @@ float calcularForcaPonderada(char nomeTime[], int forcaJogadores[]) {
 
 int main() {
     char nomeTime1[31], nomeTime2[31];
-    int forcaJogadoresTime1[11], forcaJogadoresTime2[11];
-
+    int forcaJogadoresTime1[10], forcaJogadoresTime2[10];
 
     printf("Digite o nome do Time 1: ");
     scanf("%30[^\n]%*c", nomeTime1);
@@ -36,13 +35,16 @@ int main() {
         printf("Digite o nome, posicao e forca do jogador %d (separados por ';'): ", i + 1);
         scanf("%30[^;];%c;%d%*c", nomeJogador, &posicao, &forca);
 
-        if (posicao == 'G' || posicao == 'L' || posicao == 'Z' || posicao == 'V' || posicao == 'M' || posicao == 'A') {
+        if (posicao == 'G') {
             if (forca >= 1 && forca <= 99) {
-                if (posicao == 'G' && i == 0) {
-                    forcaJogadoresTime1[0] = forca;
-                } else {
-                    forcaJogadoresTime1[i + 1] = forca;
-                }
+                forcaJogadoresTime1[0] = forca;
+            } else {
+                printf("Forca do jogador fora do intervalo valido (1-99).\n");
+                return 1;
+            }
+        } else if (posicao == 'L' || posicao == 'Z' || posicao == 'V' || posicao == 'M' || posicao == 'A') {
+            if (forca >= 1 && forca <= 99) {
+                forcaJogadoresTime1[i] = forca;
             } else {
                 printf("Forca do jogador fora do intervalo valido (1-99).\n");
                 return 1;
@@ -65,13 +67,16 @@ int main() {
         printf("Digite o nome, posicao e forca do jogador %d (separados por ';'): ", i + 1);
         scanf("%30[^;];%c;%d%*c", nomeJogador, &posicao, &forca);
 
-        if (posicao == 'G' || posicao == 'L' || posicao == 'Z' || posicao == 'V' || posicao == 'M' || posicao == 'A') {
+        if (posicao == 'G') {
             if (forca >= 1 && forca <= 99) {
-                if (posicao == 'G' && i == 0) {
-                    forcaJogadoresTime2[0] = forca;
-                } else {
-                    forcaJogadoresTime2[i + 1] = forca;
-                }
+                forcaJogadoresTime2[0] = forca;
+            } else {
+                printf("Forca do jogador fora do intervalo válido (1-99).\n");
+                return 1;
+            }
+        } else if (posicao == 'L' || posicao == 'Z' || posicao == 'V' || posicao == 'M' || posicao == 'A') {
+            if (forca >= 1 && forca <= 99) {
+                forcaJogadoresTime2[i] = forca;
             } else {
                 printf("Forca do jogador fora do intervalo válido (1-99).\n");
                 return 1;
@@ -82,16 +87,15 @@ int main() {
         }
     }
 
-    
     float forcaTime1 = calcularForcaPonderada(nomeTime1, forcaJogadoresTime1);
     float forcaTime2 = calcularForcaPonderada(nomeTime2, forcaJogadoresTime2);
 
     if (forcaTime1 > forcaTime2) {
-        printf("O Time 1 e o mais forte.\n");
+        printf("O Time 1 é o mais forte.\n");
     } else if (forcaTime2 > forcaTime1) {
-        printf("O Time 2 e o mais forte.\n");
+        printf("O Time 2 é o mais forte.\n");
     } else {
-        printf("Os dois times tem a mesma força.\n");
+        printf("Os dois times têm a mesma força.\n");
     }
 
     return 0;
