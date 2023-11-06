@@ -28,7 +28,7 @@ int main() {
     
     for (int i = 0; i < numero_elementos; i++) {
         printf("%d", conjunto_de_valores[i]);
-        if (i < n_elementos - 1) {
+        if (i < numero_elementos - 1) {
             printf(" "); 
         }
     }
